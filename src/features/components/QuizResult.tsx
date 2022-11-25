@@ -1,6 +1,7 @@
 import { FC, useContext, useEffect, useMemo, useState } from "react";
 import { apiClient } from "../../api/apiClient";
 import { QuestionsContext } from "../context/QuestionsContext";
+import { convertResultToString } from "../utils/resultUtil";
 
 export const QuizResult: FC = () => {
   const { answers: userAnswers } = useContext(QuestionsContext);
@@ -10,19 +11,7 @@ export const QuizResult: FC = () => {
     if (typeof score === "undefined") {
       return "loading...";
     }
-    if (score <= 40) {
-      return "Diligent failure";
-    }
-    if (score > 40 && score <= 60) {
-      return "Failed";
-    }
-    if (score > 60 && score <= 80) {
-      return "Good";
-    }
-    if (score > 80 && score <= 90) {
-      return "Very good";
-    }
-    return "Excellent";
+    return convertResultToString(score);
   }, [score]);
 
   useEffect(() => {
