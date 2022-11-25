@@ -1,0 +1,14 @@
+.question {
+  padding: 0;
+  margin: 0;
+}
+
+.question__option {
+  padding: 0 0 0 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.question__option input {
+  margin: 5px;
+}
