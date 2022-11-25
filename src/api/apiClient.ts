@@ -1,6 +1,6 @@
 import questions from "./questions.json";
 import answers from "./answers.json";
-import { Answer, Question } from "../features/interfaces/questions";
+import { Answer, Question } from "../features/quiz/interfaces/questions";
 
 const apiClientFactory = () => {
   return {

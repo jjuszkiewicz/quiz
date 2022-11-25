@@ -1,5 +1,5 @@
 import { FC, useContext, useEffect, useMemo, useState } from "react";
-import { apiClient } from "../../api/apiClient";
+import { apiClient } from "../../../api/apiClient";
 import { QuestionsContext } from "../context/QuestionsContext";
 import { convertResultToString } from "../utils/resultUtil";
 

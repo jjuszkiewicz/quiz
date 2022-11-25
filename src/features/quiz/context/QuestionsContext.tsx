@@ -6,7 +6,7 @@ import {
   useEffect,
   useState,
 } from "react";
-import { apiClient } from "../../api/apiClient";
+import { apiClient } from "../../../api/apiClient";
 import { Answer, Question } from "../interfaces/questions";
 
 type QuestionsContextValue = {

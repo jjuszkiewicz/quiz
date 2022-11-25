@@ -1,4 +1,4 @@
-import Quiz from "./features/pages/Quiz";
+import Quiz from "./features/quiz/pages/Quiz";
 
 function App() {
   return (
