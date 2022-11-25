@@ -19,7 +19,7 @@ type QuestionsContextValue = {
 
 export const QuestionsContext = createContext<QuestionsContextValue>({
   answers: [],
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
   addAnswer: (answer: Answer) => {},
   isNextQuestion: () => false,
   currentQuestion: () => undefined,

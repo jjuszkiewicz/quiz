@@ -1,4 +1,4 @@
-import { FC, useCallback, useContext, useState } from "react";
+import { FC, useCallback, useContext, useEffect, useState } from "react";
 import { QuestionsContext } from "../context/QuestionsContext";
 import { Question as QuestionType } from "../interfaces/questions";
 import style from "./Question.module.css";
@@ -7,10 +7,14 @@ type QuestionProps = {
   question: QuestionType;
 };
 export const Question: FC<QuestionProps> = ({ question }) => {
-  const [value, setValue] = useState<number>();
-
+  const [value, setValue] = useState<number | undefined>(undefined);
   const { addAnswer, isNextQuestion } = useContext(QuestionsContext);
 
+  useEffect(() => {
+    return () => {
+      setValue(undefined);
+    };
+  }, [question]);
   const onAddAnswer = useCallback(() => {
     if (value) {
       addAnswer({ optionId: value, questionId: question.id });
@@ -36,13 +40,17 @@ export const Question: FC<QuestionProps> = ({ question }) => {
                 type="radio"
                 onChange={(e) => onSetValue(e)}
                 value={option.id}
+                checked={value === option.id}
               />
               {option.value}
             </label>
           </li>
         ))}
       </ul>
-      <button disabled={typeof value === "undefined"}  onClick={() => onAddAnswer()}>
+      <button
+        disabled={typeof value === "undefined"}
+        onClick={() => onAddAnswer()}
+      >
         {isNextQuestion() ? "Next" : "Finish"}
       </button>
     </div>

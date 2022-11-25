@@ -37,7 +37,6 @@ export const QuizResult: FC = () => {
 
     const result = Math.round((correctAnswers / answersResult.length) * 100);
 
-    console.log(result, correctAnswers, answersResult);
     setScore(result);
   }, []);
   return (
